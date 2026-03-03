@@ -1,10 +1,546 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Hellow World</title>
-</head>
-<body>
-  <h1>Xin chào 👋</h1>
-  <p>Đây là website miễn phí từ GitHub Pages</p>
-</body>
+  <head>
+    <base target="_top">
+    <!-- Load font Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      /* Toàn trang lấy full kích thước viewport */
+      html, body {
+        margin: 0; padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      /* Khung chứa nội dung căn giữa màn hình, phóng to 150% */
+      #container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+        transform: scale(1.5);
+        transform-origin: center center;
+        font-family: 'Montserrat', sans-serif !important;
+      }
+
+      /* Ứng dụng font cho tất cả phần tử bên trong container */
+      #container * {
+        font-family: 'Montserrat', sans-serif !important;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      img#sampleImage {
+        max-width: 300px;
+        margin-bottom: 20px;
+      }
+
+      input[type=file] {
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Biến CSS để dễ dàng chỉnh popup */
+      :root {
+        /* confirmPopup */
+        --confirm-popup-max-width: 350px;
+        --confirm-popup-padding: 6px 54px;
+        --confirm-popup-font-size-text: 24px;
+        --confirm-popup-font-size-header: 24px;
+        --confirm-popup-btn-padding: 10px 24px;
+        --confirm-popup-btn-font-size: 20px;
+
+        /* alertPopup */
+        --alert-popup-max-width: 350px;
+        --alert-popup-padding: 20px 30px;
+        --alert-popup-font-size-text: 24px;
+        --alert-popup-btn-padding: 10px 28px;
+        --alert-popup-btn-font-size: 20px;
+
+        /* loadingPopup */
+        --loading-popup-max-width: 300px;
+        --loading-popup-padding: 20px 20px;
+        --loading-popup-font-size-text: 20px;
+
+        /* processingPopup */
+        --processing-popup-max-width: 350px;
+        --processing-popup-padding: 40px 40px;
+        --processing-popup-font-size-text: 28px;
+      }
+
+      /* Popup styles chung cho tất cả popup */
+      #confirmPopup, #alertPopup, #loadingPopup, #processingPopup, #errorPopup {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', Arial, sans-serif;
+        padding: 50px 80px;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(1.1);
+        transition: opacity 0s ease, transform 0.3s ease;
+      }
+
+      #confirmPopup.show, #alertPopup.show, #loadingPopup.show, #processingPopup.show, #errorPopup.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+
+      .popupOverlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+      }
+
+      /* Nội dung popup chung */
+      .popupContent {
+        position: relative;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        text-align: center;
+        transform-origin: center center;
+        /* Cỡ chữ mặc định */
+        font-size: 16px;
+      }
+
+      /* confirmPopup riêng */
+      #confirmPopup .popupContent {
+        max-width: var(--confirm-popup-max-width);
+        padding: var(--confirm-popup-padding);
+        font-size: var(--confirm-popup-font-size-text);
+        transform: scale(1.5);
+      }
+
+      #confirmPopup .popupContent h3 {
+        font-size: var(--confirm-popup-font-size-header);
+        margin-bottom: 15px;
+      }
+
+      #confirmPopup .popupContent button {
+        padding: var(--confirm-popup-btn-padding);
+        font-size: var(--confirm-popup-btn-font-size);
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        margin: 10px 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      #popupYesBtn {
+        background-color: #007b8f;
+        color: white;
+      }
+
+      #popupYesBtn:hover {
+        background-color: #005f6a;
+      }
+
+      #popupNoBtn {
+        background-color: #ccc;
+        color: #333;
+      }
+
+      #popupNoBtn:hover {
+        background-color: #999;
+      }
+
+      /* alertPopup riêng */
+      #alertPopup .popupContent {
+        max-width: var(--alert-popup-max-width);
+        padding: var(--alert-popup-padding);
+        font-size: var(--alert-popup-font-size-text);
+        transform: scale(1.5);
+      }
+
+      #alertPopup .popupContent p {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      #alertOkBtn {
+        background-color: #007b8f;
+        color: white;
+        padding: var(--alert-popup-btn-padding);
+        font-size: var(--alert-popup-btn-font-size);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0 auto;
+        display: block;
+      }
+
+      #alertOkBtn:hover {
+        background-color: #005f6a;
+      }
+
+      /* loadingPopup riêng */
+      #loadingPopup .popupContent {
+        max-width: var(--loading-popup-max-width);
+        padding: var(--loading-popup-padding);
+        font-size: var(--loading-popup-font-size-text);
+        transform: scale(1.5);
+      }
+
+      #loadingPopup .popupContent p {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* processingPopup riêng */
+      #processingPopup .popupContent {
+        max-width: var(--processing-popup-max-width);
+        padding: var(--processing-popup-padding);
+        font-size: var(--processing-popup-font-size-text);
+        font-weight: bold;
+        transform: scale(1.5);
+      }
+
+      /* errorPopup riêng giống alertPopup */
+      #errorPopup .popupContent {
+        max-width: var(--alert-popup-max-width);
+        padding: var(--alert-popup-padding);
+        font-size: var(--alert-popup-font-size-text);
+        transform: scale(1.5);
+      }
+
+      #errorPopup .popupContent p {
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      #errorRetryBtn {
+        background-color: #007b8f;
+        color: white;
+        padding: var(--alert-popup-btn-padding);
+        font-size: var(--alert-popup-btn-font-size);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0 auto;
+        display: block;
+      }
+
+      #errorRetryBtn:hover {
+        background-color: #005f6a;
+      }
+
+      /* Các nút dùng chung */
+      .popupContent button {
+        transition: background-color 0.3s ease;
+      }
+
+      /* Hiệu ứng loading chờ */
+      @keyframes ldio-yzaezf3dcmj-1 {
+          0% { transform: rotate(0deg) }
+        50% { transform: rotate(-45deg) }
+        100% { transform: rotate(0deg) }
+      }
+      @keyframes ldio-yzaezf3dcmj-2 {
+          0% { transform: rotate(180deg) }
+        50% { transform: rotate(225deg) }
+        100% { transform: rotate(180deg) }
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(2) {
+        transform: translate(-9px,0); /* giảm từ -15px */
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(2) div {
+        position: absolute;
+        top: 24px;     /* giảm từ 40px */
+        left: 24px;    /* giảm từ 40px */
+        width: 72px;   /* giảm từ 120px */
+        height: 36px;  /* giảm từ 60px */
+        border-radius: 72px 72px 0 0; /* giảm từ 120px */
+        background: #7bc246;
+        animation: ldio-yzaezf3dcmj-1 1s linear infinite;
+        transform-origin: 36px 36px;   /* giảm từ 60px */
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(2) div:nth-child(2) {
+        animation: ldio-yzaezf3dcmj-2 1s linear infinite;
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(2) div:nth-child(3) {
+        transform: rotate(-90deg);
+        animation: none;
+      }
+      @keyframes ldio-yzaezf3dcmj-3 {
+          0% { transform: translate(114px,0); opacity: 0 } /* giảm từ 190px */
+        20% { opacity: 1 }
+        100% { transform: translate(42px,0); opacity: 1 }   /* giảm từ 70px */
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(1) {
+        display: block;
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(1) div {
+        position: absolute;
+        top: 55px;     /* giảm từ 92px */
+        left: -5px;    /* giảm từ -8px */
+        width: 10px;   /* giảm từ 16px */
+        height: 10px;  /* giảm từ 16px */
+        border-radius: 50%;
+        background: #254f9f;
+        animation: ldio-yzaezf3dcmj-3 1s linear infinite;
+      }
+      .ldio-yzaezf3dcmj > div:nth-child(1) div:nth-child(1) { animation-delay: -0.67s }
+      .ldio-yzaezf3dcmj > div:nth-child(1) div:nth-child(2) { animation-delay: -0.33s }
+      .ldio-yzaezf3dcmj > div:nth-child(1) div:nth-child(3) { animation-delay: 0s }
+
+      .loadingio-spinner-bean-eater-2by998twmg8 {
+        width: 120px;       /* giảm từ 200px */
+        height: 120px;      /* giảm từ 200px */
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+      }
+      .ldio-yzaezf3dcmj {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0;
+      }
+      .ldio-yzaezf3dcmj div { box-sizing: content-box; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>OpenAI Image Input Demo</h2>
+
+      <img id="sampleImage" src="https://i.postimg.cc/pXQ0GfCh/21369431-2129303200630581-6719942514619906099-n.jpg" alt="Ảnh mẫu">
+
+      <input type="file" id="imageUpload" accept="image/*" style="font-size:20px; padding:10px 20px;">
+
+      <button onclick="handleSend()">Gửi ảnh lên OpenAI</button>
+    </div>
+
+    <!-- Popup xác nhận -->
+    <div id="confirmPopup">
+      <div class="popupOverlay"></div>
+      <div class="popupContent">
+        <p id="popupMessage"></p>
+        <button id="popupYesBtn">Xác nhận</button>
+        <button id="popupNoBtn">Hủy</button>
+      </div>
+    </div>
+
+    <!-- Popup cảnh báo -->
+    <div id="alertPopup">
+      <div class="popupOverlay"></div>
+      <div class="popupContent">
+        <p id="alertMessage"></p>
+        <button id="alertOkBtn">OK</button>
+      </div>
+    </div>
+
+    <!-- Popup lỗi mới -->
+    <div id="errorPopup">
+      <div class="popupOverlay"></div>
+      <div class="popupContent">
+        <p id="errorMessage">Có gì đó sai sai</p>
+        <button id="errorRetryBtn">Cho em đi lại</button>
+      </div>
+    </div>
+
+    <!-- Popup đang nạp tiền -->
+    <div id="processingPopup">
+      <div class="popupOverlay"></div>
+      <div class="popupContent">
+        <p style="margin: 0; font-weight: bold;">Đang nạp tiền...</p>
+      </div>
+    </div>
+
+    <!-- Popup loading -->
+    <div id="loadingPopup">
+      <div class="popupOverlay"></div>
+      <div class="popupContent" style="max-width: 300px;">
+        <div class="loadingio-spinner-bean-eater-2by998twmg8">
+          <div class="ldio-yzaezf3dcmj">
+            <div>
+              <div></div><div></div><div></div>
+            </div>
+            <div>
+              <div></div><div></div><div></div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 15px; font-weight: bold;">Đang kiểm tra giao dịch...</p>
+      </div>
+    </div>
+
+    <script>
+      function resizeAndSendImage(file) {
+        const maxWidth = 1000;
+        const maxHeight = 1000;
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const img = new Image();
+          img.onload = function() {
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height) {
+              if (width > maxWidth) {
+                height = Math.round(height * maxWidth / width);
+                width = maxWidth;
+              }
+            } else {
+              if (height > maxHeight) {
+                width = Math.round(width * maxHeight / height);
+                height = maxHeight;
+              }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.drawImage(img, 0, 0, width, height);
+
+            const resizedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+            const base64String = resizedBase64.split(',')[1];
+
+            // Show loading popup
+            document.getElementById('loadingPopup').classList.add('show');
+
+            google.script.run.withSuccessHandler(function(response) {
+
+              if (response.error) {
+                showAlertPopup("Lỗi: " + response.error);
+              } else {
+                // Gọi xử lý logic trước khi hiển thị popup
+                Topupcheck(response);
+                // Nếu Topupcheck trả về true thì showConfirmPopup được gọi trong Topupcheck
+                // Xoá dòng showConfirmationPopup(response); Vì đã gọi bên trên
+
+              }
+            }).withFailureHandler(function(error) {
+              // Hide loading popup
+              document.getElementById('loadingPopup').classList.remove('show');
+
+              showAlertPopup("Lỗi khi gọi server: " + error.message);
+            }).callOpenAIWithBase64Image(base64String);
+
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function handleSend() {
+        var fileInput = document.getElementById('imageUpload');
+        var file = fileInput.files[0];
+        if (!file) {
+          showAlertPopup("Vui lòng chọn ảnh trước khi gửi!");
+          return;
+        }
+        resizeAndSendImage(file);
+      }
+
+      function showConfirmationPopup(result) {
+        var popup = document.getElementById('confirmPopup');
+        var messageEl = document.getElementById('popupMessage');
+        var yesBtn = document.getElementById('popupYesBtn');
+        var noBtn = document.getElementById('popupNoBtn');
+
+        messageEl.innerHTML = 
+          `<h3 style="margin-bottom: 15px; text-transform: uppercase;">XÁC NHẬN NẠP TIỀN</h3>
+          <div>Tên Khách Hàng: <strong>${result.sender}</strong></div>
+          <div>Số tiền: <strong>${result.transactionAmount}đ</strong></div>`;
+
+        popup.classList.add("show");
+
+        yesBtn.onclick = null;
+        noBtn.onclick = null;
+
+        yesBtn.onclick = function() {
+          popup.classList.remove("show");
+          TopupConfirm(result);
+        };
+
+        noBtn.onclick = function() {
+          popup.classList.remove("show");
+        };
+      }
+
+      function showAlertPopup(message) {
+        var popup = document.getElementById('alertPopup');
+        var messageEl = document.getElementById('alertMessage');
+        var okBtn = document.getElementById('alertOkBtn');
+
+        messageEl.textContent = message;
+        popup.classList.add('show');
+
+        okBtn.onclick = function() {
+          popup.classList.remove('show');
+        };
+      }
+
+      function showErrorPopup(message) {
+        var messageEl = document.getElementById('errorMessage');
+        messageEl.textContent = message || "Có gì đó sai sai";
+        document.getElementById('errorPopup').classList.add('show');
+      }
+
+      document.getElementById('errorRetryBtn').onclick = function() {
+        document.getElementById('errorPopup').classList.remove('show');
+      };
+      function Topupcheck(data) {
+        google.script.run.withSuccessHandler(function(allow) {
+          // Ẩn popup loading tại thời điểm popup error hoặc confirm sắp hiện
+          document.getElementById('loadingPopup').classList.remove('show');
+
+          if (!allow.allowed) {  // sửa chỗ này
+            showErrorPopup(allow.message || "Có gì đó sai sai");
+          } else {
+            showConfirmationPopup(data);
+          }
+        }).withFailureHandler(function(err) {
+          showAlertPopup("Lỗi kiểm tra giao dịch: " + err.message);
+        }).doTopupCheck(data);
+      }
+
+      function TopupConfirm(data) {
+        // Hiện popup "Đang nạp tiền..."
+        document.getElementById('processingPopup').classList.add('show');
+
+        google.script.run.withSuccessHandler(function(resp) {
+          // Ẩn popup "Đang nạp tiền"
+          document.getElementById('processingPopup').classList.remove('show');
+
+          // Hiện popup thành công
+          showAlertPopup("Nạp tiền thành công!");
+        }).withFailureHandler(function(err) {
+          document.getElementById('processingPopup').classList.remove('show');
+          showAlertPopup("Lỗi khi xác nhận nạp: " + err.message);
+        }).doTopupConfirm(data);
+      }
+    </script>
+  </body>
 </html>
