@@ -13,6 +13,7 @@ const card=document.createElement("div")
 card.className="project-card"
 
 card.innerHTML=`
+<a href="project.html?id=${project.id}" class="card-link">
 
 <img src="${project.image}">
 
@@ -20,6 +21,7 @@ card.innerHTML=`
 
 <p>${project.description}</p>
 
+</a>
 `
 
 container.appendChild(card)
