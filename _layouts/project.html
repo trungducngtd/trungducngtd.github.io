@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<section class="section-block project-detail-hero">
+  <div class="project-detail-hero__text">
+    <p class="project-detail-id">{{ page.project_id }}</p>
+    <h1 class="section-title project-detail-title">{{ page.title }}</h1>
+    <p class="project-detail-description">{{ page.description }}</p>
+    <div class="project-detail-tags">
+      {% for tag in page.tags %}
+        <span>{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% if page.image %}
+    <div class="project-detail-hero__media">
+      <img src="{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" />
+    </div>
+  {% endif %}
+</section>
+
+<section class="section-block project-detail-body">
+  <div class="project-detail-body__inner">
+    {{ content }}
+  </div>
+</section>
