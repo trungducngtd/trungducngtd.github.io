@@ -1,19 +1,13 @@
-const params=new URLSearchParams(window.location.search)
+const params = new URLSearchParams(window.location.search)
 
-const id=params.get("id")
+const id = params.get("id")
 
-fetch('/data/projects.json')
-.then(res=>res.json())
-.then(data=>{
+fetch(`/projects/${id}.md`)
+.then(res => res.text())
+.then(md => {
 
-const project=data.find(p=>p.id==id)
+const html = marked.parse(md)
 
-if(!project) return
-
-document.getElementById("title").textContent=project.title
-
-document.getElementById("description").textContent=project.description
-
-document.getElementById("image").src=project.image
+document.getElementById("content").innerHTML = html
 
 })
