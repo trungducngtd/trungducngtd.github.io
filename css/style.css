@@ -169,4 +169,11 @@ padding:15px 0;
 margin-top:10px;
 }
 
+h1,h2,h3{
+font-weight:700;
+}
+
+p{
+line-height:1.7;
+}
 }
