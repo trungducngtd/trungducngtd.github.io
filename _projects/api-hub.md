@@ -2,7 +2,7 @@
 title: API orchestration hub
 project_id: project-02
 description: Cổng quản lý API giúp mình dùng lại các endpoint, ghi log và phân phối dữ liệu tự động.
-image: https://images.unsplash.com/photo-1486591978090-1a2f125c32cc?auto=format&fit=crop&w=1200&q=80
+image: https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80
 image_alt: Màn hình hiển thị giao diện API hub
 tags:
   - API
