@@ -1,0 +1,14 @@
+title: Trung Duc Nguyen
+description: Automation • Tools • Experiments
+url: https://trungducngtd.github.io
+baseurl: ""
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
