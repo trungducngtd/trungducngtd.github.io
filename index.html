@@ -1,119 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Trang chủ
+---
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Trung Duc Nguyen</title>
-
-<link rel="stylesheet" href="/css/style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-<div id="site-header"></div>
-<section class="hero">
-
-<div class="container">
-
-<h1>Automation • Tools • Experiments</h1>
-
-<p>
-Tôi xây dựng các công cụ automation với
-Google Apps Script, API và Chrome Extension.
-</p>
-
-<a class="button" href="/projects.html">Xem dự án</a>
-
-</div>
-
+<section class="hero section-block hero-section">
+  <div class="hero__inner">
+    <p class="hero__name">Trung Duc Nguyen</p>
+    <p class="hero__subtitle">Automation • Tools • Experiments</p>
+    <p class="hero__description">
+      Tôi xây dựng các công cụ automation<br />
+      với Google Apps Script, API và<br />
+      Chrome Extension.
+    </p>
+    <a class="cta-button" href="/projects.html">Xem dự án</a>
+  </div>
 </section>
 
-
-<section class="section">
-
-<div class="container">
-
-<h2>About</h2>
-
-<p>
-Tôi xây dựng các công cụ tự động hóa để tối ưu
-workflow marketing và xử lý dữ liệu.
-</p>
-
-</div>
-
+<section class="section-block about-section">
+  <div class="section-heading">
+    <p class="section-title">About</p>
+    <p class="section-subtitle">
+      Tôi xây dựng các tool tự động hóa<br />
+      với Google Apps Script, Chrome<br />
+      Extension và API.
+    </p>
+  </div>
 </section>
 
-
-<section class="section">
-
-<div class="container">
-
-<h2>Dự án nổi bật</h2>
-
-<div id="featured-projects" class="project-grid"></div>
-
-<a class="view-all" href="/projects.html">
-Xem tất cả dự án →
-</a>
-
-</div>
-
+<section class="section-block featured-section">
+  <div class="section-heading">
+    <p class="section-title">Project</p>
+    <p class="section-subtitle">Một vài dự án nổi bật.</p>
+  </div>
+  <div class="project-grid">
+    {% for project in site.projects limit:3 %}
+      <a class="project-card" href="{{ project.url }}">
+        {% if project.image %}
+          <div class="project-card__image">
+            <img src="{{ project.image }}" alt="{{ project.image_alt | default: project.title }}">
+          </div>
+        {% endif %}
+        <div class="project-card__body">
+          <p class="project-card__id">{{ project.project_id }}</p>
+          <h3 class="project-card__title">{{ project.title }}</h3>
+          <p class="project-card__description">{{ project.description }}</p>
+          <div class="project-card__tags">
+            {% for tag in project.tags %}
+              <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  <div class="projects-cta">
+    <a class="link-button" href="/projects.html">Xem tất cả dự án →</a>
+  </div>
 </section>
 
-
-<section class="section">
-
-<div class="container">
-
-<h2>Tech Stack</h2>
-
-<ul class="tech-list">
-
-<li>Google Apps Script</li>
-<li>Chrome Extension</li>
-<li>Google Sheets</li>
-<li>API Automation</li>
-
-</ul>
-
-</div>
-
+<section class="section-block contact-section">
+  <div class="section-heading">
+    <p class="section-title">Contact</p>
+  </div>
+  <ul class="contact-list">
+    <li>
+      <span>Email</span>
+      <a href="mailto:trungduc.ngtd@gmail.com">trungduc.ngtd@gmail.com</a>
+    </li>
+    <li>
+      <span>Facebook</span>
+      <a href="https://www.facebook.com/nguyen.trung.uc.811833/" target="_blank" rel="noreferrer">facebook.com/nguyen.trung.uc.811833</a>
+    </li>
+    <li>
+      <span>Github</span>
+      <a href="https://github.com/trungducngtd" target="_blank" rel="noreferrer">github.com/trungducngtd</a>
+    </li>
+  </ul>
 </section>
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>Contact</h2>
-
-<p>Email: your@email.com</p>
-
-<p>
-GitHub:
-<a href="https://github.com/trungducngtd">
-github.com/trungducngtd
-</a>
-</p>
-
-</div>
-
-</section>
-
-<div id="site-footer"></div>
-
-<script src="/js/load-components.js"></script>
-<script src="/js/projects.js"></script>
-
-</body>
-
-</html>
