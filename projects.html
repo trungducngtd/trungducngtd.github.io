@@ -1,0 +1,38 @@
+---
+layout: default
+title: Dự án
+---
+
+<section class="section-block page-intro">
+  <div class="section-heading">
+    <p class="section-title">Giới thiệu</p>
+    <p class="section-subtitle">
+      Toàn bộ làm bằng AI tại tôi éo biết code.
+    </p>
+  </div>
+</section>
+
+<section class="section-block">
+  <p class="section-title">Các dự án tôi đã làm bằng AI</p>
+  <div class="project-grid">
+    {% for project in site.projects %}
+      <a class="project-card" href="{{ project.url }}">
+        {% if project.image %}
+          <div class="project-card__image">
+            <img src="{{ project.image }}" alt="{{ project.image_alt | default: project.title }}">
+          </div>
+        {% endif %}
+        <div class="project-card__body">
+          <p class="project-card__id">{{ project.project_id }}</p>
+          <h3 class="project-card__title">{{ project.title }}</h3>
+          <p class="project-card__description">{{ project.description }}</p>
+          <div class="project-card__tags">
+            {% for tag in project.tags %}
+              <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
