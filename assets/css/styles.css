@@ -325,22 +325,30 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  text-align: right;
+  gap: 10px;
+  min-width: 560px;
 }
 
 .footer-contact-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 24px;
   color: var(--subtext);
 }
 
 .footer-contact-list span {
   color: var(--text);
   font-weight: 600;
+  text-align: left;
 }
 
 .footer-contact-list a {
   color: var(--text);
   text-decoration: none;
+  justify-self: end;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .project-detail-hero {
@@ -541,7 +549,7 @@ body {
   .project-detail-hero {
     flex-direction: column;
   }
-    .contact-list li {
+  .contact-list li {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
@@ -554,17 +562,27 @@ body {
   .site-footer {
     padding: 32px 16px;
   }
-  
+
   .site-footer__inner {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .footer-contact-list {
+    min-width: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .footer-contact-list li {
+    display: block;
+  }
+
+  .footer-contact-list a {
+    justify-self: start;
     text-align: left;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .section-block {
     transition: none;
