@@ -439,12 +439,11 @@ body {
 
 @media (max-width: 900px) {
   .site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     height: auto;
     min-height: 88px;
+    z-index: 1000;
   }
 
   .site-header__inner {
@@ -493,7 +492,7 @@ body {
   }
 
   .site-main {
-    padding: 116px 16px 0;
+    padding: 0 16px;
   }
 
   .featured-section .project-grid,
