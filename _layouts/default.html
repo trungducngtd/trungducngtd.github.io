@@ -22,10 +22,10 @@
         <div class="site-header__inner">
           <a class="logo" href="/">Trung Duc Nguyen</a>
           <nav class="site-nav" aria-label="Điều hướng chính">
-            <a href="/">Trang chủ</a>
-            <a href="/projects.html">Dự án</a>
-            <a href="/something.html">Linh tinh</a>
-            <a href="/about.html">Giới thiệu</a>
+            <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Trang chủ</a>
+            <a href="/projects.html" {% if page.url == '/projects.html' or page.url contains '/projects/' %}aria-current="page"{% endif %}>Dự án</a>
+            <a href="/something.html" {% if page.url == '/something.html' %}aria-current="page"{% endif %}>Linh tinh</a>
+            <a href="/about.html" {% if page.url == '/about.html' %}aria-current="page"{% endif %}>Giới thiệu</a>
           </nav>
         </div>
       </header>
