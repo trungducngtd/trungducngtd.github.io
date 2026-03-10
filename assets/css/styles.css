@@ -407,6 +407,14 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .project-grid,
+  .featured-section .project-grid,
+  .section-block .project-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
 @media (max-width: 768px) {
   .site-header {
   position: fixed;
@@ -445,10 +453,16 @@ body {
   .site-main {
     padding: 116px 16px 0;
   }
-.project-grid {
-    .site-nav::-webkit-scrollbar {
-    display: none;
+
+    .featured-section .project-grid,
+  .section-block .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
+  .project-grid {
+      .site-nav::-webkit-scrollbar {
+      display: none;
+    }
 
   .site-nav a {
     margin-left: 0;
