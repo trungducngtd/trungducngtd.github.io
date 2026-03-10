@@ -401,7 +401,8 @@ body {
 }
 
 @media (max-width: 1100px) {
-  .project-grid {
+  .featured-section .project-grid,
+  .section-block .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -445,6 +446,21 @@ body {
     padding: 116px 16px 0;
   }
 .project-grid {
+    .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    margin-left: 0;
+    flex: 0 0 auto;
+  }
+
+  .site-main {
+    padding: 116px 16px 0;
+  }
+
+  .featured-section .project-grid,
+  .section-block .project-grid {
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 24px;
 }
