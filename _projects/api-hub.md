@@ -1,12 +1,12 @@
 ---
-title: API orchestration hub
-project_id: project-02
+title: Chrome Extensions: Trích xuất dữ liệu từ trang web bất kỳ
+project_id: Extract data from website
 description: Cổng quản lý API giúp mình dùng lại các endpoint, ghi log và phân phối dữ liệu tự động.
 image: https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80
-image_alt: Màn hình hiển thị giao diện API hub
+image_alt: extract-data-from-Website
 tags:
-  - API
   - Chrome Extension
+  - Google Apps Script
 ---
 
 ## Tóm tắt
