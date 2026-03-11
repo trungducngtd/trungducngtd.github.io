@@ -2,7 +2,7 @@
 title: Chrome Extensions - SendHTML
 project_id: Extract data from website
 description: Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet
-image: https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80
+image: https://pasteboard.co/oIZ4UhFlvmM5.png?auto=format&fit=crop&w=1200&q=80
 image_alt: extract-data-from-Website
 tags:
   - Chrome Extension
