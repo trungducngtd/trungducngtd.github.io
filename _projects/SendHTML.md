@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Bối cảnh
-Từ nhu cầu cần phải nhập tay để report dữ liệu quảng cáo theo ngày của Zalo và Admicro, mà 2 nền tảng này chưa hỗ trợ API để có thể kéo số tự động.
+Làm agency, khách yêu cầu report dữ liệu quảng cáo theo ngày và hàng ngày. Với Facebook/Google/TikTok có thể sử dụng Supermetric (hoặc API) để cập nhật dữ liệu hàng ngày. Tuy nhiên Zalo Ads và Admicro hiện tại chưa có API riêng nên mỗi sáng vào công ty phải mở tài khoản lên để nhập tay số vào google sheet. <br />
 Nên bị lười.
 
 ## Tóm Tắt
