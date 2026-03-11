@@ -93,7 +93,7 @@ body {
 }
 
 .section-block {
-  padding: 120px 0;
+  padding: 40px 0;
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -512,7 +512,7 @@ body {
   }
 
   .section-block {
-    padding: 64px 0;
+    padding: 20px 0;
   }
 
   .project-detail-hero {
