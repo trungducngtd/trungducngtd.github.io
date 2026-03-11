@@ -73,7 +73,7 @@ Project card: toàn bộ thẻ <a> clickable, hover nâng nhẹ.
 Responsive: grid 3 cột (desktop), 2 cột (tablet), 1 cột (mobile).
 Font Montserrat: áp dụng toàn bộ site.
 Palette minimal: background trắng, text đen, subtext #666, border #eeee, primary #2563eb.
-Section spacing: padding 40px top/bottom (desktop), ~21px trên mobile.
+Section spacing: padding 40px top/bottom (desktop), ~20px trên mobile.
 Animation: JS giúp sections fade-in khi cuộn.
 Sticky header: luôn nằm trên cùng khi scroll.
 Project detail: Markdown hiển thị nội dung, show image, tags, nội dung bài viết (hỗ trợ Markdown).
