@@ -12,7 +12,7 @@
 │   └── project.html         → Layout chi tiết từng project (dùng Markdown trong _projects/).
 ├── _projects/               → Folder chứa nội dung chi tiết từng project (Markdown + front matter).
 ├── index.html               → Trang chủ: Hero, About, Featured Projects (tự lấy 3 project), Contact.
-├── projects.html            → Trang “Vài thứ linh tinh” dạng grid (dùng tất cả project trong _projects/).
+├── vai-thu-linh-tinh.html   → Trang “Vài thứ linh tinh” dạng grid (dùng tất cả project trong _projects/).
 ├── about.html               → Trang “Về tôi” (nội dung & kỹ năng).
 ├── 404.html                 → Trang lỗi.
 ├── assets/
@@ -61,7 +61,7 @@ Hero (tên, mô tả, nút)	index.html
 About ngắn (trên hero)	index.html
 Featured Projects (text, CTA)	index.html
 Contact (Email, Facebook, GitHub)	index.html
-Trang danh sách dự án	projects.html
+Trang danh sách dự án	vai-thu-linh-tinh.html
 Trang “About me” chi tiết, kỹ năng	about.html
 Thông tin header/footer, font, layout chung	_layouts/default.html
 Layout chi tiết từng project (image, tags, nội dung)	_layouts/project.html và _projects/*.md
