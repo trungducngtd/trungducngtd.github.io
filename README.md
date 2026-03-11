@@ -60,7 +60,7 @@ Nội dung cần thay	File chỉnh sửa
 Hero (tên, mô tả, nút)	index.html
 About ngắn (trên hero)	index.html
 Featured Projects (text, CTA)	index.html
-Contact (Email, Facebook, GitHub)	index.html
+Contact (Email, Facebook)	index.html
 Trang danh sách dự án	vai-thu-linh-tinh.html
 Trang “About me” chi tiết, kỹ năng	about.html
 Thông tin header/footer, font, layout chung	_layouts/default.html
