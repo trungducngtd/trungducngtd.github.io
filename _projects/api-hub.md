@@ -1,7 +1,7 @@
 ---
-title: Chrome Extensions - Trích xuất dữ liệu từ trang web bất kỳ
+title: Chrome Extensions - SendHTML
 project_id: Extract data from website
-description: Cổng quản lý API giúp mình dùng lại các endpoint, ghi log và phân phối dữ liệu tự động.
+description: Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet
 image: https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80
 image_alt: extract-data-from-Website
 tags:
@@ -9,8 +9,12 @@ tags:
   - Google Apps Script
 ---
 
-## Tóm tắt
-Tôi tổ chức một hub nhỏ giúp gọi API, lưu lại kết quả, chuyển tiếp payload đến Chrome Extension. Tất cả được xây bằng script JavaScript, không cần backend riêng.
+## Bối cảnh
+Từ nhu cầu cần phải nhập tay để report dữ liệu quảng cáo theo ngày của Zalo và Admicro, mà 2 nền tảng này chưa hỗ trợ API để có thể kéo số tự động.
+Nên bị lười.
+
+## Tóm Tắt
+Sử dụng chrome extensions để gửi dữ liệu trang web (html) về google apps script, sau đó trích xuất dữ liệu cần lấy và ghi vào google sheet.
 
 ## Chi tiết
 1. Dùng Google Apps Script làm trung gian (Web Apps) để nhận yêu cầu từ Chrome Extension.
