@@ -2,7 +2,7 @@
 title: Automation intelligence canvas
 project_id: project-01
 description: Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail.
-image: https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80
+image: https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80
 image_alt: Giao diện dashboard automation
 tags:
   - Apps Script
