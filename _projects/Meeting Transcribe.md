@@ -1,5 +1,5 @@
 ---
-title: Automation intelligence canvas
+title: Meeting Transcribe
 project_id: project-01
 description: Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail.
 image: https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80
