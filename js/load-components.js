@@ -13,6 +13,22 @@ async function loadComponent(selector, path) {
   }
 }
 
+function toggleHeaderShadow() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const onScroll = () => {
+    if (window.scrollY > 8) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  };
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 function setActiveNavLink() {
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.site-nav a');
@@ -40,4 +56,5 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadComponent('#header', '/components/header.html');
   await loadComponent('#footer', '/components/footer.html');
   setActiveNavLink();
+  toggleHeaderShadow();
 });
