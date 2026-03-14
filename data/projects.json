@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Chrome Extensions SendHTML",
+    "project_id": "Extract data from website",
+    "summary": "Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet",
+    "description": "Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet",
+    "image": "https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80",
+    "image_alt": "extract-data-from-Website",
+    "tags": ["Chrome Extension", "Google Apps Script"],
+    "url": "/projects/sendhtml.html"
+  },
+  {
+    "title": "Meeting Transcribe",
+    "project_id": "project-01",
+    "summary": "Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail.",
+    "description": "Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail.",
+    "image": "https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80",
+    "image_alt": "Giao diện dashboard automation",
+    "tags": ["Apps Script", "API"],
+    "url": "/projects/meeting-transcribe.html"
+  },
+  {
+    "title": "Extension lab",
+    "project_id": "project-03",
+    "summary": "Chrome Extension thử nghiệm các tool hỗ trợ automation nội bộ.",
+    "description": "Chrome Extension thử nghiệm các tool hỗ trợ automation nội bộ.",
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    "image_alt": "Giao diện extension",
+    "tags": ["Chrome Extension", "Apps Script"],
+    "url": "/projects/extension-lab.html"
+  },
+  {
+    "title": "Chrome Extensions SendHTML",
+    "project_id": "Extract data from website",
+    "summary": "Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet",
+    "description": "Trích xuất dữ liệu từ trang web bất kỳ và ghi vào Google Sheet",
+    "image": "https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80",
+    "image_alt": "extract-data-from-Website",
+    "tags": ["Chrome Extension", "Google Apps Script"],
+    "url": "/projects/clone.html"
+  }
+]
