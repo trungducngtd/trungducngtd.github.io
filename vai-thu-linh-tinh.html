@@ -1,45 +1,11 @@
----
-layout: default
-title: Vài thứ linh tinh
----
-
-<section class="section-block page-intro section-with-media">
-  <div class="section-heading section-with-media__content">
-    <p class="section-title">Giới thiệu</p>
-    <p class="section-subtitle">
-    Để mà nói về khả năng lập trình, thì thành tích đáng tự hào nhất khi học lập trình của tôi là được bạn tin tưởng cọp bài trong ngày thi cuối kì.<br>
-    Sau đó tất nhiên cả 2 chúng tôi cùng rớt môn ¯\_(ツ)_/¯<br><br>
-    
-    Kể vậy để bạn biết, những dự án ở đây (và cả cái web này) đều do một tay AI code nên, tôi chỉ ngồi gõ phím quất roi bắt nó làm thôi.<br>
-    </p>
-  </div>
-  <div class="section-with-media__media">
-    <img src="https://www.rollingstone.com/wp-content/uploads/2020/07/Screen-Shot-2020-07-15-at-11.24.37-AM.jpg" alt="Minh hoạ cho trang vài thứ linh tinh">
-  </div>
-  
-</section>
-
-<section class="section-block">
-  <p class="section-title">Tools, workflow, automation,... AI code dùm</p>
-  <div class="project-grid">
-    {% for project in site.projects %}
-      <a class="project-card" href="{{ project.url }}">
-        {% if project.image %}
-          <div class="project-card__image">
-            <img src="{{ project.image }}" alt="{{ project.image_alt | default: project.title }}">
-          </div>
-        {% endif %}
-        <div class="project-card__body">
-          <p class="project-card__id">{{ project.project_id }}</p>
-          <h3 class="project-card__title">{{ project.title }}</h3>
-          <p class="project-card__description">{{ project.description }}</p>
-          <div class="project-card__tags">
-            {% for tag in project.tags %}
-              <span>{{ tag }}</span>
-            {% endfor %}
-          </div>
-        </div>
-      </a>
-    {% endfor %}
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/projects.html" />
+    <title>Đang chuyển hướng...</title>
+  </head>
+  <body>
+    <p>Đang chuyển đến <a href="/projects.html">trang dự án</a>...</p>
+  </body>
+</html>
