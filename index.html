@@ -1,60 +1,53 @@
----
-layout: default
-title: Trang chủ
----
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trang chủ · Trung Duc Nguyen</title>
+    <meta name="description" content="Automation • Tools • Experiments" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="header"></div>
 
-<section class="hero section-block hero-section section-with-media">
-  <div class="hero__inner section-with-media__content">
-    <p class="hero__name">Trung Duc Nguyen</p>
-    <p class="hero__subtitle">Chỗ này để dành ghi gì đó vippro</p>
-    <p class="hero__description">
-      Chỗ này cũng vậy<br />
-    </p>
-  </div>
-  <div class="section-with-media__media">
-    <img src="https://cdn.dribbble.com/userupload/39572262/file/original-029623acba85198db8e2bdb2254b7dd7.jpg" alt="Minh hoạ cho trang chủ">
-  </div>
-</section>
-
-<section class="section-block about-section">
-  <div class="about-section__image-wrap">
-    <img
-      class="about-section__image"
-      src="https://i.postimg.cc/D0b1rfyx/unnamed.jpg"
-      alt="About"
-      width="1024"
-      height="387"
-    >
-  </div>
-</section>
-
-<section class="section-block featured-section">
-  <div class="section-heading">
-    <p class="section-title">Vài thứ linh tinh</p>
-    <p class="section-subtitle">mấy cái tool, workflow, automation,...</p>
-  </div>
-  <div class="project-grid">
-    {% for project in site.projects limit:3 %}
-      <a class="project-card" href="{{ project.url }}">
-        {% if project.image %}
-          <div class="project-card__image">
-            <img src="{{ project.image }}" alt="{{ project.image_alt | default: project.title }}">
+      <main class="site-main">
+        <section class="hero section-block hero-section section-with-media">
+          <div class="hero__inner section-with-media__content">
+            <p class="hero__name">Trung Duc Nguyen</p>
+            <p class="hero__subtitle">Chỗ này để dành ghi gì đó vippro</p>
+            <p class="hero__description">Chỗ này cũng vậy<br /></p>
           </div>
-        {% endif %}
-        <div class="project-card__body">
-          <p class="project-card__id">{{ project.project_id }}</p>
-          <h3 class="project-card__title">{{ project.title }}</h3>
-          <p class="project-card__description">{{ project.description }}</p>
-          <div class="project-card__tags">
-            {% for tag in project.tags %}
-              <span>{{ tag }}</span>
-            {% endfor %}
+          <div class="section-with-media__media">
+            <img src="https://cdn.dribbble.com/userupload/39572262/file/original-029623acba85198db8e2bdb2254b7dd7.jpg" alt="Minh hoạ cho trang chủ" />
           </div>
-        </div>
-      </a>
-    {% endfor %}
-  </div>
-  <div class="projects-cta">
-    <a class="link-button" href="/vai-thu-linh-tinh.html">Xem thêm →</a>
-  </div>
-</section>
+        </section>
+
+        <section class="section-block about-section">
+          <div class="about-section__image-wrap">
+            <img class="about-section__image" src="https://i.postimg.cc/D0b1rfyx/unnamed.jpg" alt="About" width="1024" height="387" />
+          </div>
+        </section>
+
+        <section class="section-block featured-section">
+          <div class="section-heading">
+            <p class="section-title">Vài thứ linh tinh</p>
+            <p class="section-subtitle">mấy cái tool, workflow, automation,...</p>
+          </div>
+          <div id="featured-projects-list" class="project-grid"></div>
+          <div class="projects-cta">
+            <a class="link-button" href="/projects.html">Xem thêm →</a>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/js/load-components.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>
