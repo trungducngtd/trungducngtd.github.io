@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Transcribe · Trung Duc Nguyen</title>
+    <meta name="description" content="Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="header"></div>
+
+      <main class="site-main">
+        <section class="section-block project-detail-hero">
+          <div class="project-detail-hero__text">
+            <p class="project-detail-id">project-01</p>
+            <h1 class="section-title project-detail-title">Meeting Transcribe</h1>
+            <p class="project-detail-description">Một bộ dashboard tự động hóa việc cập nhật dữ liệu Google Sheet và gửi báo cáo qua Gmail.</p>
+            <div class="project-detail-tags">
+              <span>Apps Script</span>
+              <span>API</span>
+            </div>
+          </div>
+          <div class="project-detail-hero__media">
+            <img src="https://i.ibb.co/FkFV9wdD/HTML-Website.png?auto=format&fit=crop&w=1200&q=80" alt="Giao diện dashboard automation" />
+          </div>
+        </section>
+
+        <section class="section-block project-detail-body">
+          <div class="project-detail-body__inner">
+            <h2>Tóm tắt</h2>
+            <p>Tôi dùng Google Apps Script để kết nối Google Sheets, Calendar và Gmail. Mỗi sáng hệ thống sẽ check trạng thái các bảng tính, lọc các task trì hoãn rồi gửi báo cáo về Slack.</p>
+
+            <h2>Quy trình</h2>
+            <ul>
+              <li>Dùng Apps Script trigger chạy lúc 6h sáng mỗi ngày.</li>
+              <li>Kết nối với API của Google Sheets, Calendar để lấy dữ liệu liên quan.</li>
+              <li>Tạo Gmail template và gửi báo cáo kèm link file.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/js/load-components.js"></script>
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>
