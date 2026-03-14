@@ -26,15 +26,28 @@ body {
   flex-direction: column;
 }
 
-.site-header {
+
+#header {
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
+}
+.site-header {
+  position: relative;
   height: 70px;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.08);
 }
 
 .site-header__inner {
