@@ -1,9 +1,15 @@
+const appBaseUrl = new URL('../', new URL(document.currentScript?.src || './js/load-components.js', document.baseURI));
+
+function withBase(path) {
+  return new URL(path.replace(/^\//, ''), appBaseUrl).toString();
+}
+
 async function loadComponent(selector, path) {
   const target = document.querySelector(selector);
   if (!target) return;
 
   try {
-    const response = await fetch(path);
+    const response = await fetch(withBase(path));
     if (!response.ok) {
       throw new Error(`Failed to load ${path}: ${response.status}`);
     }
@@ -40,6 +46,7 @@ function setActiveNavLink() {
     const isProjects = href === '/projects.html' && (
       currentPath.endsWith('/projects.html') ||
       currentPath.includes('/projects/') ||
+      currentPath.endsWith('/project.html') ||
       currentPath.endsWith('/vai-thu-linh-tinh.html')
     );
     const isBlog = href === '/blog.html' && currentPath.endsWith('/blog.html');
@@ -53,8 +60,8 @@ function setActiveNavLink() {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  await loadComponent('#header', '/components/header.html');
-  await loadComponent('#footer', '/components/footer.html');
+  await loadComponent('#header', 'components/header.html');
+  await loadComponent('#footer', 'components/footer.html');
   setActiveNavLink();
   toggleHeaderShadow();
 });
