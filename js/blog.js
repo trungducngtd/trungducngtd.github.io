@@ -3,7 +3,7 @@ async function renderPosts() {
   if (!target) return;
 
   try {
-    const response = await fetch('/data/posts.json');
+    const response = await fetch('data/posts.json');
     if (!response.ok) {
       throw new Error(`Could not load posts.json: ${response.status}`);
     }
