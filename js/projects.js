@@ -29,7 +29,7 @@ async function renderProjects({ targetId, limit } = {}) {
   if (!target) return;
 
   try {
-    const response = await fetch('/data/projects.json');
+    const response = await fetch('data/projects.json');
     if (!response.ok) {
       throw new Error(`Could not load projects.json: ${response.status}`);
     }
